@@ -20,12 +20,16 @@ export const UseGlobalContext = ({ children }) => {
   }
 
   const getBlocksArray = async (number) => {
-    const blocks = [];
-    for (let i = 0; i < 10; i++) {
-      const block = await alchemy.core.getBlock(number - i);
-      blocks.push(block);
-    }
+    // array with 10 recent blocks
+    const blockNumbers =
+      number && Array.from({ length: 10 }, (_, i) => number - 1 - i);
+    const blocks =
+      blockNumbers &&
+      (await Promise.all(
+        blockNumbers.map(async (n) => await alchemy.core.getBlock(n))
+      ));
     setBlocksArray(blocks);
+    console.log(blocks);
   };
 
   const getBlock = async () => {

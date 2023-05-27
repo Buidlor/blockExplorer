@@ -8,7 +8,6 @@ const Blocknumber = () => {
 
   useEffect(() => {
     setTime(new Date(block && block.timestamp * 1000).toLocaleString());
-    console.log(blocksArray);
   }, [block]);
 
   return (
@@ -28,30 +27,7 @@ const Blocknumber = () => {
         </div>
       </div>
 
-      <div className="">
-        {blocksArray &&
-          blocksArray.map((block) => {
-            return (
-              <div key={block.hash} className="card bg-base-100 shadow-xl">
-                <div className="card-body">
-                  <div className="card-body">
-                    <p className="text-xl font-bold text-primary">
-                      Blocknumber: {block.number}{" "}
-                    </p>
-                    <div>
-                      <p>Hash: {block.hash}</p>
-                      <p>Parent Hash: {block.parentHash}</p>
-                      <p>
-                        Time:{" "}
-                        {new Date(block.timestamp * 1000).toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-      </div>
+      <div className=""></div>
     </div>
   );
 };
