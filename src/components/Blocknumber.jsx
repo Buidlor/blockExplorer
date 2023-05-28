@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import Context from "../contexts/Context";
 
 const Blocknumber = () => {
-  const { block, blockNumber, blocksArray } = useContext(Context);
+  const { block, blockNumber } = useContext(Context);
   const [time, setTime] = useState();
 
   useEffect(() => {
@@ -11,18 +11,16 @@ const Blocknumber = () => {
   }, [block]);
 
   return (
-    <div>
-      <div className="card bg-base-100 shadow-xl">
+    <div className="flex justify-center items-center">
+      <div className="card bg-base-200 shadow-lg m-5 w-5/6 flex justify-center items-center">
         <div className="card-body">
-          <div className="card-body">
-            <p className="text-xl font-bold text-primary">
-              Blocknumber: {blockNumber}{" "}
-            </p>
-            <div className="">
-              <p>Hash: {block && block.hash}</p>
-              <p>Parent Hash: {block && block.parentHash}</p>
-              <p>Time: {time && time}</p>
-            </div>
+          <p className="text-xl font-bold text-primary">
+            Current Block: {blockNumber}{" "}
+          </p>
+          <div className="">
+            <p>Hash: {block && block.hash}</p>
+            <p>Parent Hash: {block && block.parentHash}</p>
+            <p>Time: {time && time}</p>
           </div>
         </div>
       </div>

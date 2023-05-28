@@ -41,6 +41,12 @@ export const UseGlobalContext = ({ children }) => {
     getBlockNumber();
     getBlock();
     getBlocksArray(blockNumber);
+    const interval = setInterval(() => {
+      getBlockNumber();
+      getBlock();
+      getBlocksArray(blockNumber);
+    }, 15000);
+    return () => clearInterval(interval);
   }, [blockNumber]);
 
   return (
