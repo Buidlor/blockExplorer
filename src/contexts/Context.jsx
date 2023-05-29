@@ -29,12 +29,12 @@ export const UseGlobalContext = ({ children }) => {
         blockNumbers.map(async (n) => await alchemy.core.getBlock(n))
       ));
     setBlocksArray(blocks);
-    console.log(blocks);
   };
 
   const getBlock = async () => {
     const block = await alchemy.core.getBlock(blockNumber);
     setBlock(block);
+    console.log(block);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const UseGlobalContext = ({ children }) => {
       getBlockNumber();
       getBlock();
       getBlocksArray(blockNumber);
-    }, 15000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [blockNumber]);
 

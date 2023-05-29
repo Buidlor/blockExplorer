@@ -8,14 +8,14 @@ const GetBlock = () => {
   const { blocksArray } = useContext(Context);
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card">
       <div className="card-body">
         <TransitionGroup className="block-list">
           {blocksArray &&
             blocksArray.map((block) => {
               return (
                 <CSSTransition key={block.hash} timeout={500} classNames="item">
-                  <div className="m-2">
+                  <div className="m-2 border p-2 rounded-lg shadow-md hover:bg-slate-100 cursor-pointer">
                     <p className=" font-bold text-primary">
                       Blocknumber: {block.number}{" "}
                     </p>
