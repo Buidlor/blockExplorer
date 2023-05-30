@@ -2,10 +2,12 @@ import React from "react";
 import { useContext } from "react";
 import Context from "../contexts/Context";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useNavigate } from "react-router-dom";
 import "./GetBlock.css";
 
 const GetBlock = () => {
   const { blocksArray } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
     <div className="card">
@@ -15,7 +17,10 @@ const GetBlock = () => {
             blocksArray.map((block) => {
               return (
                 <CSSTransition key={block.hash} timeout={500} classNames="item">
-                  <div className="m-2 border p-2 rounded-lg shadow-md hover:bg-slate-100 cursor-pointer">
+                  <div
+                    className="m-2 border p-2 rounded-lg shadow-md hover:bg-slate-100 cursor-pointer"
+                    onClick={() => navigate(`/blocktransactions/${block.hash}`)}
+                  >
                     <p className=" font-bold text-primary">
                       Blocknumber: {block.number}{" "}
                     </p>

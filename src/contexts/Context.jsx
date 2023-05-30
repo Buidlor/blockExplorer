@@ -13,6 +13,7 @@ export const UseGlobalContext = ({ children }) => {
   const [blockNumber, setBlockNumber] = useState();
   const [block, setBlock] = useState();
   const [blocksArray, setBlocksArray] = useState([]);
+  const [clickedBlock, setClickedBlock] = useState();
 
   async function getBlockNumber() {
     const number = await alchemy.core.getBlockNumber();
@@ -31,19 +32,24 @@ export const UseGlobalContext = ({ children }) => {
     setBlocksArray(blocks);
   };
 
-  const getBlock = async () => {
+  const getBlock = async (blockNumber) => {
     const block = await alchemy.core.getBlock(blockNumber);
     setBlock(block);
-    console.log(block);
+  };
+
+  const getClickedBlock = async (blockHash) => {
+    const block = await alchemy.core.getBlock(blockHash);
+    setClickedBlock(block);
+    return block;
   };
 
   useEffect(() => {
     getBlockNumber();
-    getBlock();
+    getBlock(blockNumber);
     getBlocksArray(blockNumber);
     const interval = setInterval(() => {
       getBlockNumber();
-      getBlock();
+      getBlock(blockNumber);
       getBlocksArray(blockNumber);
     }, 10000);
     return () => clearInterval(interval);
@@ -55,6 +61,8 @@ export const UseGlobalContext = ({ children }) => {
         blockNumber: blockNumber,
         block: block,
         blocksArray: blocksArray,
+        clickedBlock: clickedBlock,
+        getClickedBlock: getClickedBlock,
       }}
     >
       {children}

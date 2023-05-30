@@ -15,6 +15,7 @@ const Blocknumber = () => {
           <div className="">
             <p>Hash: {block && block.hash}</p>
             <p>Parent Hash: {block && block.parentHash}</p>
+            <p>Miner: {block && block.miner}</p>
             <p>
               Time: {new Date(block && block.timestamp * 1000).toLocaleString()}
             </p>
