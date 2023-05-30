@@ -14,6 +14,7 @@ export const UseGlobalContext = ({ children }) => {
   const [block, setBlock] = useState();
   const [blocksArray, setBlocksArray] = useState([]);
   const [clickedBlock, setClickedBlock] = useState();
+  const [transactionReceipt, setTransactionReceipt] = useState();
 
   async function getBlockNumber() {
     const number = await alchemy.core.getBlockNumber();
@@ -40,7 +41,14 @@ export const UseGlobalContext = ({ children }) => {
   const getClickedBlock = async (blockHash) => {
     const block = await alchemy.core.getBlock(blockHash);
     setClickedBlock(block);
-    return block;
+  };
+
+  const getTransaction = async (transactionHash) => {
+    const transaction = await alchemy.core.getTransactionReceipt(
+      transactionHash
+    );
+    console.log(transaction);
+    setTransactionReceipt(transaction);
   };
 
   useEffect(() => {
@@ -63,6 +71,8 @@ export const UseGlobalContext = ({ children }) => {
         blocksArray: blocksArray,
         clickedBlock: clickedBlock,
         getClickedBlock: getClickedBlock,
+        getTransaction: getTransaction,
+        transactionReceipt: transactionReceipt,
       }}
     >
       {children}
