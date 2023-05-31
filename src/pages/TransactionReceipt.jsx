@@ -34,7 +34,11 @@ const TransactionReceipt = () => {
   return (
     <div>
       <NavBar />
-      <p>{transactionhash}</p>
+      <div className="mockup-code m-10">
+        <pre>
+          <code>{JSON.stringify(transactionReceipt, null, 2)}</code>
+        </pre>
+      </div>
     </div>
   );
 };
