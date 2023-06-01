@@ -19,7 +19,7 @@ const BlockTransactions = () => {
     return (
       <div>
         <NavBar />
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center pt-16">
           <div className="card bg-base-200 shadow-lg m-5 flex justify-center items-center cursor-pointer">
             <div className="card-body">
               <p className="text-xl font-bold text-primary">
@@ -36,7 +36,7 @@ const BlockTransactions = () => {
     <div>
       <NavBar />
       {/* a list of all the transactions in that block */}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center pt-16">
         <div className="card bg-base-150 shadow-lg m-5 flex justify-center items-center  w-screen">
           <div className="card-body">
             <p className="text-xl font-bold text-primary">

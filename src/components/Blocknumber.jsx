@@ -8,9 +8,9 @@ const Blocknumber = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center ">
       <div
-        className="card bg-base-200 shadow-lg m-5 flex justify-center items-center cursor-pointer"
+        className="card bg-base-200 shadow-lg mt-5 flex justify-center items-center cursor-pointer "
         onClick={() => navigate(`/blocktransactions/${block.hash}`)}
       >
         <div className="card-body">

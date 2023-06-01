@@ -18,7 +18,7 @@ const TransactionReceipt = () => {
     return (
       <div>
         <NavBar />
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center pt-16">
           <div className="card bg-base-200 shadow-lg m-5 flex justify-center items-center cursor-pointer">
             <div className="card-body">
               <p className="text-xl font-bold text-primary">
@@ -32,10 +32,10 @@ const TransactionReceipt = () => {
   }
 
   return (
-    <div>
+    <div className="">
       <NavBar />
-      <div className="mockup-code m-10">
-        <pre>
+      <div className="mockup-code pt-24 ">
+        <pre className="m-5">
           <code>{JSON.stringify(transactionReceipt, null, 2)}</code>
         </pre>
       </div>

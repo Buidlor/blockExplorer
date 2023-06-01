@@ -7,7 +7,7 @@ import Context from "../contexts/Context";
 const NavBar = () => {
   const navigate = useNavigate();
   return (
-    <div className="navbar bg-neutral text-neutral-content shadow-lg rounded-b-lg">
+    <div className="navbar bg-neutral text-neutral-content shadow-lg rounded-b-lg z-10 fixed">
       <a
         className="btn btn-ghost normal-case text-xl"
         onClick={() => navigate("/")}

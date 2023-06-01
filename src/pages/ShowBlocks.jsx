@@ -7,8 +7,10 @@ const ShowBlocks = () => {
   return (
     <div>
       <NavBar />
-      <Blocknumber />
-      <GetBlock />
+      <div className="flex flex-col pt-16">
+        <Blocknumber />
+        <GetBlock />
+      </div>
     </div>
   );
 };
